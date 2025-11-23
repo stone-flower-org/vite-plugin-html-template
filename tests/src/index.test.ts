@@ -2,10 +2,9 @@ import fs from 'fs';
 import path from 'path';
 
 import { build, defineConfig } from 'vite';
+import { clearTmpDirs, resolveFixturesDir, setupTmpDir } from '@/tests/utils';
 
 import htmlTemplate from '@/src/index';
-
-import { clearTmpDirs, resolveFixturesDir, setupTmpDir } from '@/tests/utils';
 
 const defaultDefine = {};
 
@@ -16,8 +15,6 @@ const OUT_DIR = 'dist';
 afterAll(async () => {
   await clearTmpDirs();
 });
-
-afterEach(() => {});
 
 describe('html-template', () => {
   describe.each([
